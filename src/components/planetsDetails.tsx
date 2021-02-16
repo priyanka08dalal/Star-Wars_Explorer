@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchPlanetDetails } from "../actions/planetDetailsAction";
 import CircularProgress, { CircularProgressProps } from "@material-ui/core/CircularProgress";
-import { RootState }  from '../reducers/index';
+import { RootState } from '../reducers/index';
 import Link from '@material-ui/core/Link'
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
@@ -41,17 +41,13 @@ export default function PlanetsDetails(props: JSX.IntrinsicAttributes & Circular
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  useEffect(() => {}, [planetDetails]);
+  useEffect(() => { }, [planetDetails]);
   const classes = useStyles();
   if (loading) {
     return (
       <CircularProgress
         variant="indeterminate"
         disableShrink
-        // className={classes.top}
-        // classes={{
-        //   circle: classes.circle,
-        // }}
         size={40}
         thickness={4}
         {...props}
@@ -62,36 +58,33 @@ export default function PlanetsDetails(props: JSX.IntrinsicAttributes & Circular
       <div className={classes.root}>
         <MainItems text={"Planets"} />
         <Box m={2}>
-        <Breadcrumbs aria-label="breadcrumb">
-        <Link color="inherit" href="/" onClick={handleClickRoute}>
-          Home
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link color="inherit" href="/" onClick={handleClickRoute}>
+              Home
         </Link>
-        <Link color="inherit" href="/planets
+            <Link color="inherit" href="/planets
         "onClick={handleClickRouteplanets}>
-          Planets List
+              Planets List
         </Link>
-        <Typography color="textPrimary">Planets Details</Typography>
-      </Breadcrumbs>
-      </Box>
-      <Box m={6} pl={2} pt={0}>
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Title"
-          defaultValue={planetDetails.name}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Terrain"
-          defaultValue={planetDetails.terrain}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Population"
-          defaultValue={planetDetails.population}
-        />
+            <Typography color="textPrimary">Planets Details</Typography>
+          </Breadcrumbs>
+        </Box>
+        <Box m={6} pl={2} pt={0}>
+          <TextField
+            id="standard-disabled"
+            label="Title"
+            defaultValue={planetDetails.name}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Terrain"
+            defaultValue={planetDetails.terrain}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Population"
+            defaultValue={planetDetails.population}
+          />
         </Box>
       </div>
     );

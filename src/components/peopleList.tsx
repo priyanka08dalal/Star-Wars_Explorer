@@ -7,7 +7,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ImageIcon from "@material-ui/icons/Image";
-// import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from '@material-ui/core/styles';
 import { RootState }  from '../reducers/index';
@@ -23,8 +22,6 @@ import Link from '@material-ui/core/Link'
 const useStyles =  makeStyles ((theme: Theme) =>({
   root: {
     width: "100%",
-    // maxWidth: 360,
-    // direction: "row",
     padding: 0,
     display: "inline-block",
     backgroundColor: theme.palette.background.paper,
@@ -64,19 +61,6 @@ function PeopleList() {
       {people.length > 0 &&
         people.map((p: any, i: any) => {
           return (
-            // <List className={classes.root} key={i}>
-            //   <ListItem>
-            //     <ListItemAvatar>
-            //       <Avatar>
-            //         <ImageIcon />
-            //       </Avatar>
-            //     </ListItemAvatar>
-
-            //     <Typography>
-            //       <Link to="/persondetails">{p.name}</Link>
-            //     </Typography>
-            //   </ListItem>
-            // </List>
             <List
               className={classes.root}
               key={i}
@@ -90,12 +74,11 @@ function PeopleList() {
                 onClick={handleClick}
               >
                 <ListItemAvatar>
-                  <Avatar src="./avatar.jpeg">{/* <ImageIcon /> */}</Avatar>
+                  <Avatar src="./avatar.jpeg"></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={p.name} />
 
                 <Typography>
-                  {/* <Link to="/persondetails">{p.name}</Link> */}
                   <Divider variant="inset" component="li" />
                 </Typography>
               </ListItem>

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchPersonDetails } from "../actions/personDetailAction";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { RootState }  from '../reducers/index';
+import { RootState } from '../reducers/index';
 import Link from '@material-ui/core/Link'
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
@@ -41,17 +41,13 @@ export default function PersonDetails(props: any) {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  useEffect(() => {}, [persondetail]);
+  useEffect(() => { }, [persondetail]);
   const classes = useStyles();
   if (loading) {
     return (
       <CircularProgress
         variant="indeterminate"
         disableShrink
-        // className={classes.top}
-        // classes={{
-        //   circle: classes.circle,
-        // }}
         size={40}
         thickness={4}
         {...props}
@@ -62,54 +58,48 @@ export default function PersonDetails(props: any) {
       <div className={classes.root}>
         <MainItems text={"People"} />
         <Box m={2}>
-        <Breadcrumbs aria-label="breadcrumb">
-        <Link color="inherit" href="/" onClick={handleClickRoute}>
-          Home
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link color="inherit" href="/" onClick={handleClickRoute}>
+              Home
         </Link>
-        <Link color="inherit" href="/people
+            <Link color="inherit" href="/people
         "onClick={handleClickRoutePeople}>
-          Person List
+              People List
         </Link>
-        <Typography color="textPrimary">Person Details</Typography>
-      </Breadcrumbs>
-      </Box>
-      <Box m={6} pl={2} pt={0}>
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Height"
-          defaultValue={persondetail.height}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Mass"
-          defaultValue={persondetail.mass}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Hair Color"
-          defaultValue={persondetail.hair_color}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Eye Color"
-          defaultValue={persondetail.eye_color}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Birth Year"
-          defaultValue={persondetail.birth_year}
-        />
-        <TextField
-          // disabled
-          id="standard-disabled"
-          label="Gender"
-          defaultValue={persondetail.gender}
-        />
+            <Typography color="textPrimary">Person Details</Typography>
+          </Breadcrumbs>
+        </Box>
+        <Box m={6} pl={2} pt={0}>
+          <TextField
+            id="standard-disabled"
+            label="Height"
+            defaultValue={persondetail.height}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Mass"
+            defaultValue={persondetail.mass}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Hair Color"
+            defaultValue={persondetail.hair_color}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Eye Color"
+            defaultValue={persondetail.eye_color}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Birth Year"
+            defaultValue={persondetail.birth_year}
+          />
+          <TextField
+            id="standard-disabled"
+            label="Gender"
+            defaultValue={persondetail.gender}
+          />
         </Box>
       </div>
     );

@@ -6,7 +6,7 @@ import { fetchPlanet } from "../actions/planetAction";
 import { useEffect } from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import { RootState }  from '../reducers/index';
+import { RootState } from '../reducers/index';
 import { Theme } from "@material-ui/core/styles";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ImageIcon from "@material-ui/icons/Image";
@@ -19,11 +19,9 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import Link from '@material-ui/core/Link'
 
-const useStyles =  makeStyles ((theme: Theme) =>({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
-    // maxWidth: 360,
-    // direction: "row",
     padding: 0,
     display: "inline-block",
     backgroundColor: theme.palette.background.paper,
@@ -41,7 +39,7 @@ function PlanetsList() {
   const history = useHistory();
   const handleClick = () => history.push('/planetsdetails');
   const handleClickRoute = () => history.push('/')
-  
+
   useEffect(() => {
     dispatch(fetchPlanet());
   }, []);
@@ -52,30 +50,17 @@ function PlanetsList() {
     <div className={classes.root}>
       <MainItems text={"Planets"} />
       <Box m={6} pl={2} pt={1}>
-      <Breadcrumbs aria-label="breadcrumb" >
-        <Link color="inherit" href="/" onClick={handleClickRoute}>
-          Home
+        <Breadcrumbs aria-label="breadcrumb" >
+          <Link color="inherit" href="/" onClick={handleClickRoute}>
+            Home
         </Link>
-        <Typography color="textPrimary">Planets List</Typography>
-      </Breadcrumbs>
+          <Typography color="textPrimary">Planets List</Typography>
+        </Breadcrumbs>
       </Box>
       {planet &&
         planet.length > 0 &&
         planet.map((p: any, i: any) => {
           return (
-            // <List className={classes.root} key={i}>
-            //   <ListItem>
-            //     <ListItemAvatar>
-            //       <Avatar>
-            //         <ImageIcon />
-            //       </Avatar>
-            //     </ListItemAvatar>
-
-            //     <Typography>
-            //       <Link to="/planetsdetails">{p.name}</Link>
-            //     </Typography>
-            //   </ListItem>
-            // </List>
             <List
               className={classes.root}
               key={i}
@@ -89,17 +74,16 @@ function PlanetsList() {
                 onClick={handleClick}
               >
                 <ListItemAvatar>
-                  <Avatar src="./avatar.jpeg">{/* <ImageIcon /> */}</Avatar>
+                  <Avatar src="./avatar.jpeg"></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={p.name} />
 
                 <Typography>
-                  {/* <Link to="/persondetails">{p.name}</Link> */}
                   <Divider variant="inset" component="li" />
                 </Typography>
               </ListItem>
               <Divider />
-              
+
             </List>
           );
         })}

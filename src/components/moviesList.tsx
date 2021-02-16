@@ -23,8 +23,7 @@ import Link from '@material-ui/core/Link'
 const useStyles =  makeStyles ((theme: Theme) =>({
   root: {
     width: "100%",
-    // maxWidth: 360,
-    // direction: "row",
+
     padding: 0,
     display: "inline-block",
     backgroundColor: theme.palette.background.paper,
@@ -65,18 +64,6 @@ export default function MoviesList() {
         movies.length > 0 &&
         movies.map((p: any, i: any) => {
           return <>
-            {/* <List className={classes.root} key={i}>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <ImageIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <Typography>
-                  <Link to="/filmsdetails">{p.title}</Link>
-                </Typography>
-              </ListItem>
-            </List> */}
             <List
               className={classes.root}
               key={i}
@@ -90,12 +77,11 @@ export default function MoviesList() {
                 onClick={handleClick}
               >
                 <ListItemAvatar>
-                  <Avatar src="./avatar.jpeg">{/* <ImageIcon /> */}</Avatar>
+                  <Avatar src="./avatar.jpeg"></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={p.title} />
 
                 <Typography>
-                  {/* <Link to="/persondetails">{p.name}</Link> */}
                   <Divider variant="inset" component="li" />
                 </Typography>
               </ListItem>
@@ -107,5 +93,3 @@ export default function MoviesList() {
     </div>
   </>
 }
-
-// export default connect()(MoviesList);
