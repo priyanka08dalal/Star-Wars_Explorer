@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link'
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Divider from "@material-ui/core/Divider";
-import { useHistory } from 'react-router-dom';
+import { useHistory , useParams } from 'react-router-dom';
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,10 +34,11 @@ export default function PlanetsDetails(props: JSX.IntrinsicAttributes & Circular
   const history = useHistory();
   const handleClickRoute = () => history.push('/')
   const handleClickRouteplanets = () => history.push('/planets')
+  const { id }= useParams<{ id: string }>();
 
   //DISPATCHING ACTION FOR GETTING Movies DETAILS FROM THE ID
   useEffect(() => {
-    dispatch(fetchPlanetDetails());
+    dispatch(fetchPlanetDetails(id + 1));
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -70,6 +71,7 @@ export default function PlanetsDetails(props: JSX.IntrinsicAttributes & Circular
           </Breadcrumbs>
         </Box>
         <Box m={6} pl={2} pt={0}>
+        <h3>{planetDetails.name}</h3>
           <TextField
             id="standard-disabled"
             label="Title"

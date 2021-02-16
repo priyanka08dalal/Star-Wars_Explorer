@@ -5,12 +5,12 @@ import {
   FETCH_PLANETDETAILS_FAILURE,
 } from "./actionType";
 
-export const fetchPlanetDetails = () => {
+export const fetchPlanetDetails = (id: any) => {
   return (dispatch: any) => {
     dispatch(fetchPlanetsDetailsRequest());
     axios
 
-      .get("https://swapi.dev/api/planets/1") // Use axios to get data from API
+      .get(`https://swapi.dev/api/planets/${id}`) // Use axios to get data from API
       .then((response) => {
         // response.data is the users
         const PlanetsDetails = response.data;

@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link'
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Divider from "@material-ui/core/Divider";
-import { useHistory } from 'react-router-dom';
+import { useHistory , useParams } from 'react-router-dom';
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme: any) => ({
@@ -34,10 +34,11 @@ export default function MoviesDetails(props: any) {
   const history = useHistory();
   const handleClickRoute = () => history.push('/')
   const handleClickRoutePeople = () => history.push('/films')
+  const { id }= useParams<{ id: string }>();
 
   //DISPATCHING ACTION FOR GETTING Movies DETAILS FROM THE ID
   useEffect(() => {
-    dispatch(fetchMoviesDetails());
+    dispatch(fetchMoviesDetails(id + 1));
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -70,14 +71,15 @@ export default function MoviesDetails(props: any) {
           </Breadcrumbs>
         </Box>
         <Box m={6} pl={2} pt={0}>
+        <h3>{moviesDetails.title}</h3>
           <TextField
             id="standard-disabled"
-            label="Height"
+            label="Title"
             defaultValue={moviesDetails.title}
           />
           <TextField
             id="standard-disabled"
-            label="Mass"
+            label="Director"
             defaultValue={moviesDetails.director}
           />
           <TextField

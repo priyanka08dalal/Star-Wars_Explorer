@@ -38,7 +38,7 @@ function PeopleList() {
   const people = useSelector((state: RootState) => state.peopleReducer.people);
   const [selectedIndex] = React.useState(1);
   const history = useHistory();
-  const handleClick = () => history.push('/persondetails');
+  const handleClick = (e: any,i: any) => history.push(`/persondetails/${i}`);
   const handleClickRoute = () => history.push('/')
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function PeopleList() {
               <ListItem
                 button
                 selected={selectedIndex === 1}
-                onClick={handleClick}
+                onClick={(e) => handleClick(e, i)}
               >
                 <ListItemAvatar>
                   <Avatar src="./avatar.jpeg"></Avatar>

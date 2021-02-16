@@ -37,7 +37,7 @@ function PlanetsList() {
   const planet = useSelector((state: RootState) => state.planetsReducer.planet);
   const [selectedIndex] = React.useState(1);
   const history = useHistory();
-  const handleClick = () => history.push('/planetsdetails');
+  const handleClick = (e: any, i: any) => history.push(`/planetsdetails/${i}`);
   const handleClickRoute = () => history.push('/')
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function PlanetsList() {
               <ListItem
                 button
                 selected={selectedIndex === 1}
-                onClick={handleClick}
+                onClick={(e) => handleClick(e, i)}
               >
                 <ListItemAvatar>
                   <Avatar src="./avatar.jpeg"></Avatar>

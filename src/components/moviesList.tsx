@@ -39,7 +39,7 @@ export default function MoviesList() {
   const movies = useSelector((state: RootState) => state.moviesReducer.movies);
   const [selectedIndex] = React.useState(1);
   const history = useHistory();
-  const handleClick = () => history.push('/filmsdetails');
+  const handleClick = (e: any,i: any) => history.push(`/filmsdetails/${i}`);
   const handleClickRoute = () => history.push('/')
 
   //DISPATCHING ACTION FOR GETTING Movies DETAILS FROM THE ID
@@ -74,7 +74,7 @@ export default function MoviesList() {
               <ListItem
                 button
                 selected={selectedIndex === 1}
-                onClick={handleClick}
+                onClick={(e) => handleClick(e, i)}
               >
                 <ListItemAvatar>
                   <Avatar src="./avatar.jpeg"></Avatar>

@@ -5,12 +5,12 @@ import {
   FETCH_PERSONDETAILS_FAILURE,
 } from "./actionType";
 
-export const fetchPersonDetails = () => {
+export const fetchPersonDetails = (id: any) => {
   return (dispatch: any) => {
     dispatch(fetchPersonDetailsRequest());
     axios
 
-      .get("https://swapi.dev/api/people/1") // Use axios to get data deom API
+      .get(`https://swapi.dev/api/people/${id}`) // Use axios to get data deom API
       .then((response) => {
         // response.data is the users
         const PersonDetails = response.data;

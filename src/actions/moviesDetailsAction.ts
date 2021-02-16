@@ -5,12 +5,12 @@ import {
   FETCH_MOVIESDETAILS_FAILURE,
 } from "./actionType";
 
-export const fetchMoviesDetails = () => {
+export const fetchMoviesDetails = (id: any) => {
   return (dispatch: any) => {
     dispatch(fetchMoviesDetailsRequest());
     axios
 
-      .get("https://swapi.dev/api/films/1") //Use axios to get data from api
+      .get(`https://swapi.dev/api/films/${id}`) //Use axios to get data from api
       .then((response) => {
         // response.data is the movie details
         const MoviesDetails = response.data;

@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link'
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Divider from "@material-ui/core/Divider";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,10 +34,11 @@ export default function PersonDetails(props: any) {
   const history = useHistory();
   const handleClickRoute = () => history.push('/')
   const handleClickRoutePeople = () => history.push('/people')
+  const { id }= useParams<{ id: string }>();
 
   //DISPATCHING ACTION FOR GETTING PERSON DETAILS FROM THE ID
   useEffect(() => {
-    dispatch(fetchPersonDetails());
+    dispatch(fetchPersonDetails(id + 1));
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -70,6 +71,7 @@ export default function PersonDetails(props: any) {
           </Breadcrumbs>
         </Box>
         <Box m={6} pl={2} pt={0}>
+        <h3>{persondetail.name}</h3>
           <TextField
             id="standard-disabled"
             label="Height"
@@ -87,8 +89,8 @@ export default function PersonDetails(props: any) {
           />
           <TextField
             id="standard-disabled"
-            label="Eye Color"
-            defaultValue={persondetail.eye_color}
+            label="Skin Color"
+            defaultValue={persondetail.skin_color}
           />
           <TextField
             id="standard-disabled"

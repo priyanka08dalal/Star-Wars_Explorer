@@ -15,11 +15,11 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={ItemsButton} />
           <Route path="/people" exact component={PeopleList} />
-          <Route path="/persondetails" exact component={PersonDetails} />
+          <Route path="/persondetails/:id" exact component={PersonDetails} />
           <Route path="/films" exact component={MoviesList} />
-          <Route path="/filmsdetails" exact component={MoviesDetails} />
+          <Route path="/filmsdetails/:id" exact component={MoviesDetails} />
           <Route path="/planets" exact component={PlanetsList} />
-          <Route path="/planetsdetails" exact component={planetsDetails} />
+          <Route path="/planetsdetails/:id" exact component={planetsDetails} />
         </Switch>
       </div>
     );
